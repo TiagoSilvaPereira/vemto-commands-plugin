@@ -8,15 +8,25 @@ module.exports = (vemto) => {
 
         onInstall() {
             vemto.savePluginData({
-                text: 'Hello world!!'
+                beforeGenerationCommands: [],
+                afterGenerationCommands: []
             })
         },
 
         beforeCodeGenerationStart() {
             let data = vemto.getPluginData()
 
-            vemto.log.info(data.text)
-            vemto.log.warning(`That's awesome!!! A Vemto plugin showing a message during code generation`)
+            data.beforeGenerationCommands.forEach(command => {
+                if(command.length) vemto.executeCommand(command)
+            })
+        },
+
+        beforeCodeGenerationEnd() {
+            let data = vemto.getPluginData()
+
+            data.afterGenerationCommands.forEach(command => {
+                if(command.length) vemto.executeCommand(command)
+            })
         },
 
     }
