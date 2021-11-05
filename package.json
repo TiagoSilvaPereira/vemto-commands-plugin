@@ -1,0 +1,15 @@
+{
+    "version": "1.0.0",
+    "id": "app.vemto.commands",
+    "name": "commands",
+    "title": "Commands",
+    "description": "Execute commands during generation",
+    "image": "",
+    "main": "src/main.js",
+    "vueComponent": "dist/commands.umd.min.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/TiagoSilvaPereira/vemto-commands-plugin"
+    },
+    "minVemtoVersion": "1.0.0"
+}
